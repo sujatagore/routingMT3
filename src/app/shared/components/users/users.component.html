@@ -1,0 +1,29 @@
+
+<div class="row" *ngIf="userData.length > 0; else noUsers">
+    <div class="col-md-12 text-right">
+        <button mat-mini-fab color="accent" routerLink="addUser" class="icon">
+            <mat-icon>plus_one</mat-icon>
+        </button>
+        <hr>
+    </div>
+    <div class="col-md-4">
+        <mat-list>
+            <mat-list-item *ngFor="let user of userData"
+                [routerLink]="[user.userId]"
+                [queryParams]="{userRole: user.userRole}"
+                routerLinkActive="active">
+                <mat-icon>person</mat-icon>
+                {{user.userName}}
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<ng-template #noUsers>
+    <p class="alert alert-warning">
+        No Users Data Available!!!
+    </p>
+</ng-template>

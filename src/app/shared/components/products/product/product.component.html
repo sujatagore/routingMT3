@@ -1,0 +1,51 @@
+
+<div *ngIf="ProductObj;else noProductObj">
+    <mat-card>
+        <div class="row">
+            <div class="col-md-4">
+                <img mat-card-xl-image [src]="ProductObj.images" [alt]="ProductObj.pname" [title]="ProductObj.pname">
+            </div>
+
+            <div class="col-md-8">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{ProductObj.pname}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{ProductObj.brand}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{ProductObj.productDescription}}
+                    </p>
+                    <p>
+                        Price: ${{ProductObj.price}}
+                    </p>
+                    <p>
+                        Rating: {{ProductObj.rating}} / 5
+                    </p>
+                    <p>
+                        Status: {{ProductObj.pstatus}}
+                    </p>
+                </mat-card-content>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+<ng-template #noProductObj>
+    <p class="alert alert-warning">
+        No Products Data Available!!!
+    </p>
+</ng-template>
+
+<hr>
+
+<button mat-flat-button color="accent" class="mr-2" routerLink="editProduct" [queryParamsHandling]="'preserve'">
+    Edit Product
+</button>
+
+<button mat-flat-button color="warn" (click)="onProductRemove()">
+    Remove Product
+</button>

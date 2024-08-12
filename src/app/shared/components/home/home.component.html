@@ -1,0 +1,19 @@
+
+<ng-container *ngIf="userRole.includes('admin') || userRole.includes('sa')">
+    <button mat-raised-button color="accent" routerLink="/users">
+        Go To User
+    </button>    
+</ng-container>
+
+<hr>
+
+<button mat-raised-button color="accent" routerLink="/products">
+    Go To Products
+</button>
+
+<hr>
+<ng-container *ngIf="userRole.includes('sa')">
+    <button mat-raised-button color="accent" routerLink="/fairs">
+        Go To Fairs
+    </button>
+</ng-container>

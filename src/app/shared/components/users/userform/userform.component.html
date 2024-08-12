@@ -1,0 +1,47 @@
+
+<h3>
+    {{isinEditMode ? 'Update User' : 'Add User'}}
+</h3>
+
+<mat-card>
+    <mat-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="onUserAdd()">
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="userName">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>User Email</mat-label>
+                <input matInput formControlName="userEmail">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>User Phone</mat-label>
+                <input matInput formControlName="userPhone">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>User Address</mat-label>
+                <input matInput formControlName="userAddress">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>User Role</mat-label>
+                <mat-select formControlName="userRole">
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="buyer">Buyer</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="accent" *ngIf="!isinEditMode">
+                Add User
+            </button>
+
+            <button type="button" mat-raised-button color="warn" *ngIf="isinEditMode" (click)="onUpdateUser()"
+                [disabled]="userRole === 'buyer'">
+                Update User
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

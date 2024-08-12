@@ -1,0 +1,86 @@
+<main class="mainAuth">
+    <mat-card class="authCard text-white">
+        <ng-container *ngIf="allReadyHasAcc">
+            <mat-card-header>
+                <mat-card-title>
+                    <h4 class="heading mb-4">
+                        Log In Form
+                    </h4>
+                </mat-card-title>
+            </mat-card-header>
+
+            <div class="social-container mb-4">
+                <a href="javascript:;" class="social"><i class="fab fa-facebook-f"></i></a>
+                <a href="javascript:;" class="social"><i class="fab fa-google-plus-g"></i></a>
+                <a href="javascript:;" class="social"><i class="fab fa-linkedin-in"></i></a>
+                <a href="javascript:;" class="social"><i class="fab fa-github"></i></a>
+            </div>
+
+            <mat-card-content>
+                <form [formGroup]="logInForm" (ngSubmit)="onLogIn()">
+                    <mat-form-field class="example-full-width mb-4" appearance="legacy">
+                        <mat-label class="text-white">Email ID</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="legacy">
+                        <mat-label class="text-white">Password</mat-label>
+                        <input matInput formControlName="password" [type]="showPassword? 'text' : 'password'">
+                        <i class="fas" [ngClass]="{'fa-eye-slash' : !showPassword, 'fa-eye': showPassword}" 
+                        (click)="showPassword = !showPassword"></i>
+                    </mat-form-field>
+                    
+                    <mat-card-actions class="text-right mr-1">
+                        <button mat-raised-button color="accent" type="submit">Log In</button>
+                    </mat-card-actions>
+                </form>
+            </mat-card-content>
+        </ng-container>
+
+        <ng-container *ngIf="!allReadyHasAcc">
+                <mat-card-header>
+                    <mat-card-title>
+                        <h4 class="heading mb-4">
+                            Sign Up Form
+                        </h4>
+                    </mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+                        <mat-form-field class="example-full-width" appearance="legacy">
+                            <mat-label class="text-white">Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width" appearance="legacy">
+                            <mat-label class="text-white">Email ID</mat-label>
+                            <input matInput formControlName="email">
+                        </mat-form-field>
+    
+                        <mat-form-field class="example-full-width" appearance="legacy">
+                            <mat-label class="text-white">Password</mat-label>
+                            <input matInput formControlName="password" [type]="showPassword? 'text' : 'password'">
+                            <i class="fas" [ngClass]="{'fa-eye-slash' : !showPassword, 'fa-eye': showPassword}" 
+                            (click)="showPassword = !showPassword"></i>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width" appearance="legacy">
+                            <mat-label class="text-white">Confirm Password</mat-label>
+                            <input matInput formControlName="confirmPassword" [type]="confirmPassword? 'text' : 'password'">
+                            <i class="fas" [ngClass]="{'fa-eye-slash' : !confirmPassword, 'fa-eye': confirmPassword}" 
+                            (click)="confirmPassword = !confirmPassword"></i>
+                        </mat-form-field>
+                        
+                        <mat-card-actions class="text-right mr-1">
+                            <button mat-raised-button color="accent" type="submit">Sign Up</button>
+                        </mat-card-actions>
+                    </form>
+                </mat-card-content>
+        </ng-container>
+
+        <a href="javascript:;" mat-raised-button (click)="allReadyHasAcc = !allReadyHasAcc">
+            {{allReadyHasAcc? 'Dont Have Account' : 'Already Has Account'}}
+        </a>
+    </mat-card>
+</main>

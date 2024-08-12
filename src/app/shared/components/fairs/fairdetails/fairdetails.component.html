@@ -1,0 +1,35 @@
+
+<div class="fairdetail" *ngIf="fairInfo;else noFairInfo">
+    <div class="banner">
+        <img [src]="fairInfo.bannerUrl" [alt]="fairInfo.fairName" [title]="fairInfo.fairName">
+
+        <div class="contentDetail">
+            <h4>
+                {{fairInfo.fairName | uppercase}}
+            </h4>
+            <p class="mb-0">
+                Event Type: {{fairInfo.type}}
+            </p>
+            <p class="mb-0">
+                Start Date: {{fairInfo.startDate * 1000 | date}}
+            </p>
+            <p class="mb-0">
+                End Date: {{fairInfo.endDate * 1000 | date}}
+            </p>
+        </div>
+        <button mat-stroked-button color="accent" class="btnBook">Book Now</button>
+    </div>
+    <p *ngIf="fairInfo.candidateDescription" [innerHtml]="fairInfo.candidateDescription">
+        
+    </p>
+
+    <p *ngIf="fairInfo.schoolDescription" [innerHtml]="fairInfo.schoolDescription">
+        
+    </p>
+</div>
+
+<ng-template #noFairInfo>
+    <p class="alert alert-warning">
+        No Fairs Data Available!!!
+    </p>
+</ng-template>

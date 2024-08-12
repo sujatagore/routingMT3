@@ -1,0 +1,62 @@
+.mainAuth{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeH_6nQCd_J19wtnzWL3gXvAciVGUigpoBsA&s');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .authCard{
+        height: 410px;
+        width: 450px;
+        max-width: 95%;
+        background: rgb(0, 0, 0, 0.3);
+    }
+}
+
+.example-full-width{
+    width: 100%;
+}
+
+input[type='password']{
+    position: relative;
+}
+
+.fas{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.heading{
+    margin-left: 125px;
+}
+
+.social-container{
+    margin: 5px 100px
+}
+
+.social-container a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.social-container a:hover{
+    background-color: aqua;
+    color: red;
+    text-decoration: none;
+}
